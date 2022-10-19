@@ -14,7 +14,7 @@
 
 <body>
     <nav class="navMenu">
-        <a href="home.html">
+        <a href="index.html">
             <img src="img/panah.png">
         </a>
     </nav>
@@ -25,27 +25,23 @@
         <div class="kontak-box">
             <div class="kontak-left">
                 <h3>Send you request</h3>
-                <form>
+                <form onsubmit="pesan()">
                     <div class="input">
                         <div class="input-isi">
                             <label>Nama</label>
-                            <input type="text" placeholder="Nama" id="name" autocomplete="off">
-                            <p class="nama">this column must not be empty!</p>
+                            <input type="text" placeholder="Nama" id="name" autocomplete="off" required>
                         </div>
                     </div>
                     <div class="input">
                         <div class="input-isi">
                             <label>Email</label>
-                            <input type="email" placeholder="email" id="email" autocomplete="off">
-                            <p class="email">this column must not be empty!</p>
+                            <input type="email" placeholder="email" id="email" autocomplete="off" required>
                         </div>
 
                     </div>
                     <label>Pesan</label>
                     <textarea id="teks" cols="30" rows="10" placeholder="Pesan"></textarea>
-                    <input type="button" class="button" value="Kirim" onclick="pesan()">
-                    <p class="msg">Pesan Terkirim</p>
-                    <p class="eror">Pesan Tidak Terkirim</p>
+                    <input type="submit" class="button" value="Kirim">
                 </form>
             </div>
             <div class="kontak-right">
@@ -73,43 +69,16 @@
     </div>
 </div>
     <script>
+        function login(){
+            var user = document.getElementById("name").value;
+            var pass = document.getElementById("email").value;
+            var error = document.querySelector ("text");
+
+            
+        }
+
         function pesan() {
-            var pesan = document.getElementById("teks").value
-            var nama = document.getElementById("name").value
-            var email = document.getElementById("email").value
-            var msg = document.querySelector(".msg");
-            var error = document.querySelector(".eror");
-            var pesan_nama = document.querySelector(".nama");
-            var pesan_email = document.querySelector(".email");
-            if (pesan != "" && nama != "" && email != "") {
-                error.style.display = "none"
-                msg.style.display = "inline-block"
-            }
-            else {
-                msg.style.display = "none"
-                error.style.display = "inline-block"
-            }
-
-            if (nama == "" && email == "") {
-                pesan_nama.style.display = "inline-block"
-                pesan_email.style.display = "inline-block"
-            }
-            else if (nama != "" && email != "") {
-                pesan_nama.style.display = "none"
-                pesan_email.style.display = "none"
-            }
-            else if (email == "" && nama != "") {
-                pesan_email.style.display = "inline-block"
-                pesan_nama.style.display = "none"
-            }
-            else if (nama == "" && email != "") {
-                pesan_nama.style.display = "inline-block"
-                pesan_email.style.display = "none"
-            }
-            else {
-                return 0;
-            }
-
+            alert("complete message")
         }
     </script>
 
