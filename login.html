@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/login.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+</head>
+
+<body>
+    <div class="login">
+        <div class="input">
+            <div class="judul">
+                Form login
+            </div>
+            <form method="post" id="submit">
+                <div class="input_user">
+                    <label for="input_text">Username</label>
+                    <div class="input_isi">
+                        <input type="text" class="isi" id="username" autocomplete="off" required>
+                        <p id="note">username should not be empty!</p>
+                    </div>
+                </div>
+                <div class="input_user">
+                    <label for="input_text">Password</label>
+                    <div class="input_isi">
+                        <input type="password" class="isi" id="pass" autocomplete="off" required>
+                        <p id="note_pass">Password should not be empty!</p>
+                    </div>
+                </div>
+                <div class="input_user">
+                    <span id="error_msg">Username atau Password tidak sesuai !</span>
+                    <input type="button" class="btn" id="btn_login" onclick="check()" value="Login"> 
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function check(){
+            var user = document.getElementById("username").value
+            var pass = document.getElementById("pass").value
+            var error_msg = document.querySelector("#error_msg");
+            var error_user = document.querySelector("#note");
+            var error_pass = document.querySelector("#note_pass");
+
+            if(user=="" && pass==""){
+                error_user.style.display = "inline-block"
+                error_pass.style.display = "inline-block"
+            }
+            else if(user!="" && pass!=""){
+                error_user.style.display = "none"
+                error_pass.style.display = "none"
+            }
+            else if(user=="" && pass!=""){
+                error_user.style.display = "inline-block"
+                error_pass.style.display = "none"
+            }
+            else if(user!="" && pass==""){
+                error_pass.style.display = "inline-block"
+                error_user.style.display = "none"
+            }
+            else{
+                return 0;
+            }
+            if (user=="Agus Salim" && pass=="12345" ){
+                window.location.href="about.html";
+            }
+            else if (user!="Agus Salim" && pass!="12345"){
+                error_msg.style.display = "inline-block"
+            }
+            else{
+                return 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

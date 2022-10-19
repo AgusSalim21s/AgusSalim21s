@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/kontak.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kontak</title>
+</head>
+
+<body>
+    <nav class="navMenu">
+        <a href="home.html">
+            <img src="img/panah.png">
+        </a>
+    </nav>
+    <div class="container">
+        <div class="wrapper-kontak">
+        <h1>My Contact</h1>
+        <p>Jika ada sesuatu yang ingin di sampaikan, dapat menghubungi saya melalui form di bawah!</p>
+        <div class="kontak-box">
+            <div class="kontak-left">
+                <h3>Send you request</h3>
+                <form>
+                    <div class="input">
+                        <div class="input-isi">
+                            <label>Nama</label>
+                            <input type="text" placeholder="Nama" id="name" autocomplete="off">
+                            <p class="nama">this column must not be empty!</p>
+                        </div>
+                    </div>
+                    <div class="input">
+                        <div class="input-isi">
+                            <label>Email</label>
+                            <input type="email" placeholder="email" id="email" autocomplete="off">
+                            <p class="email">this column must not be empty!</p>
+                        </div>
+
+                    </div>
+                    <label>Pesan</label>
+                    <textarea id="teks" cols="30" rows="10" placeholder="Pesan"></textarea>
+                    <input type="button" class="button" value="Kirim" onclick="pesan()">
+                    <p class="msg">Pesan Terkirim</p>
+                    <p class="eror">Pesan Tidak Terkirim</p>
+                </form>
+            </div>
+            <div class="kontak-right">
+                <h3>Reach us</h3>
+                <table>
+                    <tr>
+                        <td>Email</td>
+                        <td>agusalm797@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Nomor HP </td>
+                        <td>085397517330</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>Jln. Muhajirin, Parang Tambung, Tamalate, Makassar</td>
+                    </tr>
+                </table>
+                <div class="icon">
+                    <a href="https://www.instagram.com/agslim_/" target="_blank"><img src="img/R.png" alt=""></a>
+                    <a href="https://www.facebook.com/profile.php?id=100030601260144" target="_blank"><img src="img/R (1).png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        function pesan() {
+            var pesan = document.getElementById("teks").value
+            var nama = document.getElementById("name").value
+            var email = document.getElementById("email").value
+            var msg = document.querySelector(".msg");
+            var error = document.querySelector(".eror");
+            var pesan_nama = document.querySelector(".nama");
+            var pesan_email = document.querySelector(".email");
+            if (pesan != "" && nama != "" && email != "") {
+                error.style.display = "none"
+                msg.style.display = "inline-block"
+            }
+            else {
+                msg.style.display = "none"
+                error.style.display = "inline-block"
+            }
+
+            if (nama == "" && email == "") {
+                pesan_nama.style.display = "inline-block"
+                pesan_email.style.display = "inline-block"
+            }
+            else if (nama != "" && email != "") {
+                pesan_nama.style.display = "none"
+                pesan_email.style.display = "none"
+            }
+            else if (email == "" && nama != "") {
+                pesan_email.style.display = "inline-block"
+                pesan_nama.style.display = "none"
+            }
+            else if (nama == "" && email != "") {
+                pesan_nama.style.display = "inline-block"
+                pesan_email.style.display = "none"
+            }
+            else {
+                return 0;
+            }
+
+        }
+    </script>
+
+</body>
+</html>
